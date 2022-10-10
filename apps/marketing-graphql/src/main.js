@@ -17,6 +17,11 @@ const server = createServer({
 
       type Query {
         reviews(contentType: String!, objectId: String!): [Review]
+
+        reviewsForObjectIds(
+          contentType: String!
+          objectIds: [String!]!
+        ): [[Review]]!
       }
     `,
     resolvers: {
@@ -28,6 +33,15 @@ const server = createServer({
           });
 
           return reviews;
+        },
+        reviewsForObjectIds: async (_parent, args) => {
+          const { contentType, objectIds } = args;
+
+          const response = await Promise.all(
+            objectIds.map((objectId) => getReviews({ contentType, objectId }))
+          );
+
+          return response;
         },
       },
     },

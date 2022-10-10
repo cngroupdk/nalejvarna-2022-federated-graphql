@@ -1,11 +1,17 @@
 import { getRemoteSchema } from '../utils';
 
 async function getInventorySchema() {
-  return await getRemoteSchema('http://localhost:3100/graphql');
+  return await getRemoteSchema({
+    name: '📙 Inventory',
+    graphqlUrl: 'http://localhost:3100/graphql',
+  });
 }
 
 async function getMarketingSchema() {
-  return await getRemoteSchema('http://localhost:3200/graphql');
+  return await getRemoteSchema({
+    name: '🗣️ Marketing',
+    graphqlUrl: 'http://localhost:3200/graphql',
+  });
 }
 
 export async function getSubschemas() {
