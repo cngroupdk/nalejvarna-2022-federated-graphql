@@ -343,7 +343,7 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@graphql-tools/batch-delegate@8.4.1":
+"@graphql-tools/batch-delegate@8.4.1", "@graphql-tools/batch-delegate@^8.4.1":
   version "8.4.1"
   resolved "https://registry.yarnpkg.com/@graphql-tools/batch-delegate/-/batch-delegate-8.4.1.tgz#e4757df8cb6e985fedbd6315a7b2721190b988ef"
   integrity sha512-kbDY3p0JKEcIUwb5lCXX647oz07lXbvdfigyzD++Goi7RChutK03MmPKvrrgQwi0SFupRKy1tIJAlExlW83STw==
