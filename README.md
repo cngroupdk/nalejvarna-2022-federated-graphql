@@ -2,6 +2,8 @@
 
 This project was generated using [Nx](https://nx.dev).
 
+## [🎞️ Presentation Slides](./docs/Nalejvarna%20-%20Federated%20GraphQL.pdf)
+
 ## Requirements
 
 - [Node.js v16](https://nodejs.org/)
