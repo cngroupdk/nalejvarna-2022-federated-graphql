@@ -1,0 +1,60 @@
+{
+  "name": "marketing-graphql",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/marketing-graphql/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/marketing-graphql",
+        "main": "apps/marketing-graphql/src/main.js",
+        "tsConfig": "apps/marketing-graphql/tsconfig.app.json",
+        "assets": ["apps/marketing-graphql/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/marketing-graphql/src/environments/environment.js",
+              "with": "apps/marketing-graphql/src/environments/environment.prod.js"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/js:node",
+      "options": {
+        "buildTarget": "marketing-graphql:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "marketing-graphql:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/marketing-graphql/**/*.js"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/marketing-graphql"],
+      "options": {
+        "jestConfig": "apps/marketing-graphql/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
